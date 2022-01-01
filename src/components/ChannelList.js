@@ -90,6 +90,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   inputSearchBox: {
+    color: 'gray',
     backgroundColor: '#2e0a2f',
     padding: 10,
   },

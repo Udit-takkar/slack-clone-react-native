@@ -6,7 +6,6 @@ import {TouchableOpacity, View, Text, Image, StyleSheet} from 'react-native';
 export const ChannelHeader = ({navigation, channel, client}) => {
   let channelTitle = '#channel_name';
 
-  // For normal group channel/conversation, its channel name as display title.
   if (channel && channel.data && channel.data.name) {
     channelTitle = '# ' + channel.data.name.toLowerCase().replace(' ', '_');
   }

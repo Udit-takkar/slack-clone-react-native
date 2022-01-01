@@ -30,6 +30,7 @@ export default function App() {
           drawerContent={ChannelListDrawer}
           screenOptions={{
             drawerStyle: {backgroundColor: '#3F0E40', width: 350},
+            headerShown: false,
           }}>
           <Drawer.Screen name="ChannelScreen" component={ChannelScreen} />
         </Drawer.Navigator>
