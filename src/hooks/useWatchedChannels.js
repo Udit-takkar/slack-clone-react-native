@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
-const useWatchedChannels = (client, changeChannel) => {
+export const useWatchedChannels = (client, changeChannel) => {
   const [activeChannelId, setActiveChannelId] = useState(null);
   const [unreadChannels, setUnreadChannels] = useState([]);
   const [readChannels, setReadChannels] = useState([]);
@@ -27,14 +27,6 @@ const useWatchedChannels = (client, changeChannel) => {
     const _readChannels = [];
     const _oneOnOneConversations = [];
 
-    /**
-     * fetchChannels simply gets the channels from queryChannels endpoint
-     * and sorts them by following 3 categories:
-     *
-     * - Unread channels
-     * - Channels (read channels)
-     * - Direct conversations/messages
-     */
     async function fetchChannels() {
       const channels = await client.queryChannels(filters, sort, {
         ...options,
@@ -154,5 +146,3 @@ const useWatchedChannels = (client, changeChannel) => {
     setOneOnOneConversations,
   };
 };
-
-export default useWatchedChannels;

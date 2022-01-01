@@ -5,10 +5,10 @@ import {
   TextInput,
   View,
   StyleSheet,
-  Item,
   Text,
 } from 'react-native';
-import useWatchedChannels from '../hooks/useWatchedChannels';
+import {useWatchedChannels} from '../hooks/useWatchedChannels';
+import {ChannelListItem} from '../components/ChannelListItem';
 
 function ChannelList({client, changeChannel}) {
   const {
@@ -19,14 +19,24 @@ function ChannelList({client, changeChannel}) {
     oneOnOneConversations,
   } = useWatchedChannels(client, changeChannel);
 
-  //   const renderChannelRow = (channel, isUnread) => {
-  //     const isOneOnOneConversation =
-  //       Object.keys(channel.state.members).length === 2;
+  const renderChannelRow = (channel, isUnread) => {
+    const isOneOnOneConversation =
+      Object.keys(channel.state.members).length === 2;
 
-  //       return (
-  //           <ChannelListItem  />
-  //       )
-  //   };
+    return (
+      <ChannelListItem
+        activeChannelId={activeChannelId}
+        setActiveChannelId={setActiveChannelId}
+        changeChannel={changeChannel}
+        isOneOnOneConversation={isOneOnOneConversation}
+        isUnread={isUnread}
+        channel={channel}
+        client={client}
+        key={channel.id}
+        currentUserId={client.user.id}
+      />
+    );
+  };
   return (
     <SafeAreaView>
       <View style={styles.container}>
@@ -55,9 +65,7 @@ function ChannelList({client, changeChannel}) {
           ]}
           keyExtractor={(item, index) => item + index}
           renderItem={({item, section}) => {
-            console.log(item);
-            return <Text>Kuch Bhu</Text>;
-            // return renderChannelRow(item, section.id === 'unread');
+            return renderChannelRow(item, section.id === 'unread');
           }}
           renderSectionHeader={({section: {title}}) => (
             <View style={styles.groupTitleContainer}>

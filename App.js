@@ -10,11 +10,12 @@ const ChannelListDrawer = props => {
   return (
     <ChannelList
       client={chatClient}
-      changeChannel={channelId =>
+      changeChannel={channelId => {
+        console.log(channelId);
         props.navigation.jumpTo('ChannelScreen', {
           channelId,
-        })
-      }
+        });
+      }}
     />
   );
 };
@@ -27,7 +28,9 @@ export default function App() {
       <View style={styles.container}>
         <Drawer.Navigator
           drawerContent={ChannelListDrawer}
-          drawerStyle={styles.drawerNavigator}>
+          screenOptions={{
+            drawerStyle: {backgroundColor: '#3F0E40', width: 350},
+          }}>
           <Drawer.Screen name="ChannelScreen" component={ChannelScreen} />
         </Drawer.Navigator>
       </View>
@@ -42,10 +45,6 @@ const styles = StyleSheet.create({
   channelScreenContainer: {flexDirection: 'column', height: '100%'},
   container: {
     flex: 1,
-  },
-  drawerNavigator: {
-    backgroundColor: '#3F0E40',
-    width: 350,
   },
   chatContainer: {
     backgroundColor: 'white',
