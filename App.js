@@ -5,7 +5,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import ChannelScreen from './src/screens/ChannelScreen';
 import ChannelList from './src/components/ChannelList';
 import chatClient from './src/config/ChatClient';
-
+// !members-CqSPjRyEtMwT1ulJR6HWTQPa5Ge8wpLFoxd5itDeKRI
 const ChannelListDrawer = props => {
   return (
     <ChannelList

@@ -1,7 +1,7 @@
 import React from 'react';
 import {TouchableOpacity, View, Text, Image, StyleSheet} from 'react-native';
-// import iconSearch from '../images/svgs';
-// import iconThreeDots from '../../images/icon-3-dots.png';
+import iconSearch from '../images/icon-search.png';
+import iconThreeDots from '../images/icon-3-dots.png';
 
 export const ChannelHeader = ({navigation, channel, client}) => {
   let channelTitle = '#channel_name';
@@ -35,10 +35,10 @@ export const ChannelHeader = ({navigation, channel, client}) => {
       </View>
       <View style={styles.rightContent}>
         <TouchableOpacity style={styles.searchIconContainer}>
-          {/* <Image source={iconSearch} style={styles.searchIcon} /> */}
+          <Image source={iconSearch} style={styles.searchIcon} />
         </TouchableOpacity>
         <TouchableOpacity style={styles.menuIconContainer}>
-          {/* <Image source={iconThreeDots} style={styles.menuIcon} /> */}
+          <Image source={iconThreeDots} style={styles.menuIcon} />
         </TouchableOpacity>
       </View>
     </View>
